@@ -1,3 +1,4 @@
+https://stephb-97.github.io/Restaurant-Project/
 # Whiskey's Bistro 🐾
 
 A dog-friendly restaurant website built for an Introduction to Web Development course.
