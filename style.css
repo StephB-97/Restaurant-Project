@@ -1,27 +1,4 @@
-/*
-  style.css — Whiskey's Bistro
-  Student: [Your Name]
-  Course: Introduction to Web Development
 
-  Colour palette:
-    White    #FAFBFF
-    Blue Lt  #D6E9F8
-    Blue Mid #A8CCEB
-    Blue Dk  #5B9AC9
-    Gold     #F0C060
-    Gold Dk  #C8933A
-    Tan      #E8C49A
-    Dark     #2E2E3A
-    Mid grey #5A5A72
-    Lt grey  #8A8AA8
-*/
-
-
-/* =============================================
-   RESET
-   Removes the default spacing browsers add
-   so every element starts clean
-============================================= */
 * {
   margin: 0;
   padding: 0;
