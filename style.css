@@ -1,0 +1,1131 @@
+/*
+  style.css — Whiskey's Bistro
+  Student: [Your Name]
+  Course: Introduction to Web Development
+
+  Colour palette:
+    White    #FAFBFF
+    Blue Lt  #D6E9F8
+    Blue Mid #A8CCEB
+    Blue Dk  #5B9AC9
+    Gold     #F0C060
+    Gold Dk  #C8933A
+    Tan      #E8C49A
+    Dark     #2E2E3A
+    Mid grey #5A5A72
+    Lt grey  #8A8AA8
+*/
+
+
+/* =============================================
+   RESET
+   Removes the default spacing browsers add
+   so every element starts clean
+============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #FAFBFF;
+  color: #2E2E3A;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom scrollbar colour */
+::-webkit-scrollbar       { width: 7px; }
+::-webkit-scrollbar-track { background: #D6E9F8; }
+::-webkit-scrollbar-thumb { background: #5B9AC9; border-radius: 10px; }
+
+
+/* =============================================
+   NAVBAR
+============================================= */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background-color: rgba(250, 251, 255, 0.95);
+  border-bottom: 2px solid #D6E9F8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  z-index: 1000;
+}
+
+/* Logo on the left */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.paw-icon {
+  font-size: 1.5rem;
+  background-color: #F0C060;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #2E2E3A;
+}
+
+.logo-text em {
+  color: #5B9AC9;
+  font-style: normal;
+}
+
+/* Desktop navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #5A5A72;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover {
+  color: #5B9AC9;
+}
+
+/* Highlighted link for the current section — toggled by JavaScript */
+.nav-links a.active {
+  color: #5B9AC9;
+  border-bottom: 2px solid #F0C060;
+  padding-bottom: 2px;
+}
+
+/* Hamburger button — hidden on desktop, visible on mobile */
+#hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#hamburger-btn span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: #2E2E3A;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+/* The three lines animate into an X when the menu opens */
+#hamburger-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+#hamburger-btn.open span:nth-child(2) { opacity: 0; }
+#hamburger-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+/* Mobile dropdown — hidden by default, .open class added by JavaScript */
+#mobile-menu {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(250, 251, 255, 0.98);
+  border-bottom: 2px solid #D6E9F8;
+  flex-direction: column;
+  padding: 1rem 5%;
+  gap: 0.5rem;
+  z-index: 999;
+}
+
+#mobile-menu.open {
+  display: flex;
+}
+
+#mobile-menu a {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2E2E3A;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #D6E9F8;
+}
+
+#mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+
+/* =============================================
+   HERO SECTION
+============================================= */
+#home {
+  min-height: 100vh;
+  padding-top: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #FAFBFF 0%, #EBF4FD 50%, #FEF8EE 100%);
+}
+
+/* Two-column layout: text on the left, dog card on the right */
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* Small pill above the heading */
+.hero-badge {
+  display: inline-block;
+  background-color: #D6E9F8;
+  border: 1.5px solid #A8CCEB;
+  border-radius: 99px;
+  padding: 0.4rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #5B9AC9;
+  margin-bottom: 1.2rem;
+}
+
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.15;
+  color: #2E2E3A;
+}
+
+.hero-text h1 em {
+  color: #C8933A;
+  font-style: italic;
+}
+
+/* Applied to the word "Bistro" in the hero heading */
+.blue-text {
+  color: #5B9AC9;
+}
+
+.hero-sub {
+  margin-top: 1.2rem;
+  font-size: 1.05rem;
+  color: #5A5A72;
+  line-height: 1.75;
+  max-width: 460px;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Right side — dog card and stats */
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  border: 2px solid #D6E9F8;
+  padding: 2rem 3rem;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(91, 154, 201, 0.2);
+}
+
+/* Dog emoji with a gentle wobble animation */
+.dog-emoji {
+  font-size: clamp(5rem, 10vw, 8rem);
+  animation: wiggle 4s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50%       { transform: rotate(3deg) scale(1.05); }
+}
+
+.card-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: #C8933A;
+  margin-top: 0.5rem;
+}
+
+/* Four small number boxes below the dog card */
+.stats-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-box {
+  background-color: #ffffff;
+  border: 2px solid #D6E9F8;
+  border-radius: 14px;
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  min-width: 85px;
+  box-shadow: 0 4px 16px rgba(91, 154, 201, 0.12);
+}
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #5B9AC9;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #8A8AA8;
+  font-weight: 600;
+}
+
+
+/* =============================================
+   SHARED SECTION STYLES
+   Reused by menu, gallery, about, and contact
+============================================= */
+.section {
+  padding: 100px 5%;
+  background-color: #FAFBFF;
+}
+
+/* Light blue background used by the about section */
+.section-alt {
+  background: linear-gradient(160deg, #EBF4FD, #FAFBFF);
+}
+
+/* Centres and limits the content width */
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Small uppercase label above each section title */
+.section-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C8933A;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #2E2E3A;
+  line-height: 1.2;
+}
+
+.section-title em {
+  color: #5B9AC9;
+  font-style: italic;
+}
+
+.section-desc {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  color: #5A5A72;
+  max-width: 560px;
+}
+
+/* Short gradient line shown under section titles */
+.divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #F0C060, #5B9AC9);
+  border-radius: 99px;
+  margin: 1rem 0 2.5rem 0;
+}
+
+
+/* =============================================
+   BUTTONS
+   btn-gold = primary action, btn-blue = secondary
+============================================= */
+.btn {
+  display: inline-block;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #F0C060, #C8933A);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(200, 147, 58, 0.4);
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(200, 147, 58, 0.55);
+}
+
+.btn-blue {
+  background-color: #D6E9F8;
+  color: #5B9AC9;
+  border: 2px solid #A8CCEB;
+}
+
+.btn-blue:hover {
+  background-color: #A8CCEB;
+  transform: translateY(-3px);
+}
+
+
+/* =============================================
+   MENU SECTION
+============================================= */
+#menu {
+  background: linear-gradient(180deg, #FAFBFF, #EBF4FD);
+}
+
+/* Row of category filter buttons above the grid */
+.filter-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 99px;
+  border: 2px solid #D6E9F8;
+  background-color: #ffffff;
+  color: #5A5A72;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: #A8CCEB;
+  border-color: #A8CCEB;
+  color: #ffffff;
+}
+
+/* .active is added/removed by JavaScript when a filter is clicked */
+.filter-btn.active {
+  background-color: #5B9AC9;
+  border-color: #5B9AC9;
+  color: #ffffff;
+}
+
+/* Grid wraps automatically based on screen width */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.menu-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #D6E9F8;
+  box-shadow: 0 6px 24px rgba(91, 154, 201, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(91, 154, 201, 0.2);
+}
+
+/* Coloured top area of each card — gradient is set inline in the HTML */
+.card-image {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Transparent PNG food images centred on the gradient background */
+.card-image img {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.card-body {
+  padding: 1.2rem 1.4rem 1.4rem;
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2E2E3A;
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  color: #8A8AA8;
+  margin: 0.35rem 0 0.8rem;
+  line-height: 1.5;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #C8933A;
+}
+
+/* Coloured label badge in the corner of each card */
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 99px;
+}
+
+.badge-blue  { background-color: #D6E9F8; color: #5B9AC9; }
+.badge-gold  { background-color: #FFE8C0; color: #C8933A; }
+.badge-green { background-color: #D4F1D4; color: #3A8A3A; }
+
+
+/* =============================================
+   GALLERY SECTION — IMAGE SLIDER
+============================================= */
+#gallery {
+  background-color: #ffffff;
+}
+
+/* Wrapper that clips overflowing slides */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* All 6 slides sit in a row; JavaScript moves this with translateX */
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Each slide takes up the full container width */
+.slide {
+  min-width: 100%;
+  height: 460px;
+  flex-shrink: 0;
+  position: relative;  /* so the image can position itself inside this box */
+  overflow: hidden;    /* clips the image to the slide's edges */
+}
+
+/* Full-cover photo behind each slide */
+.slide-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+/* Left and right arrow buttons overlaid on the slider */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: #5B9AC9;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background-color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-left  { left: 14px; }
+.arrow-right { right: 14px; }
+
+/* Dot row below the slider — dots are created by JavaScript */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #A8CCEB;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s, width 0.3s;
+}
+
+/* Active dot stretches into a pill shape — toggled by JavaScript */
+.dot.active {
+  background-color: #5B9AC9;
+  width: 28px;
+  border-radius: 99px;
+}
+
+
+/* =============================================
+   ABOUT SECTION
+============================================= */
+
+/* Two-column layout: emoji mosaic on the left, text on the right */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* 2×2 grid of decorative emoji cards */
+.about-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mosaic-card {
+  border-radius: 20px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  box-shadow: 0 6px 24px rgba(91, 154, 201, 0.15);
+}
+
+/* Offset the first and last cards to create a staggered look */
+.mosaic-card:nth-child(1) { margin-top: 2rem; }
+.mosaic-card:nth-child(4) { margin-top: -2rem; }
+
+.mosaic-blue    { background: linear-gradient(135deg, #A8CCEB, #D6E9F8); }
+.mosaic-gold    { background: linear-gradient(135deg, #F0C060, #FEE8A8); }
+.mosaic-tan     { background: linear-gradient(135deg, #E8C49A, #FEF4E8); }
+.mosaic-dk-blue { background: linear-gradient(135deg, #5B9AC9, #A8CCEB); }
+
+/* Sub-headings inside the about text column */
+.about-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #2E2E3A;
+  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-text p {
+  color: #5A5A72;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* Row of small tag pills at the bottom of the about text */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.pill {
+  background-color: #ffffff;
+  border: 2px solid #D6E9F8;
+  border-radius: 99px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5B9AC9;
+}
+
+
+/* =============================================
+   CONTACT SECTION
+============================================= */
+
+/* Two columns: form on the left, map on the right */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+/* White card that wraps the form */
+.form-wrapper {
+  background-color: #FAFBFF;
+  border: 2px solid #D6E9F8;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 24px rgba(91, 154, 201, 0.12);
+}
+
+.form-wrapper h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #2E2E3A;
+  margin-bottom: 1.5rem;
+}
+
+/* Wraps each label + input pair */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #5A5A72;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+/* Shared style for all three input types */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: 2px solid #D6E9F8;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #2E2E3A;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #5B9AC9;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Red error text shown by JavaScript when a field fails validation */
+.error-msg {
+  display: block;
+  font-size: 0.8rem;
+  color: #e00055;
+  font-weight: 700;
+  margin-top: 0.3rem;
+  min-height: 1rem;
+}
+
+/* Green success box shown by JavaScript after a valid form submit */
+#form-success {
+  display: none;
+  margin-top: 1rem;
+  padding: 0.9rem 1.2rem;
+  background-color: #E8F7E8;
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  color: #2E7D32;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Right column: map iframe + contact info rows */
+.map-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.map-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  height: 340px;
+  border: 2px solid #D6E9F8;
+  box-shadow: 0 6px 24px rgba(91, 154, 201, 0.12);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* Each individual contact detail row */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background-color: #FAFBFF;
+  border: 2px solid #D6E9F8;
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+}
+
+/* Circular icon on the left of each info row */
+.info-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #D6E9F8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-item span:last-child {
+  font-size: 0.93rem;
+  color: #5A5A72;
+  font-weight: 600;
+}
+
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+  background: linear-gradient(160deg, #2E2E3A, #1A1A2E);
+  color: #ffffff;
+  padding: 60px 5% 30px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Four columns: brand info, navigate links, menu links, hours */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* First column — brand name, description, social icons */
+.footer-brand .paw-icon.large {
+  font-size: 1.8rem;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.footer-brand h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  color: #F0C060;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.6rem;
+  line-height: 1.7;
+}
+
+/* Row of social media emoji links */
+.social-links {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background-color 0.25s, transform 0.25s;
+}
+
+.social-links a:hover {
+  background-color: #F0C060;
+  transform: translateY(-3px);
+}
+
+/* Shared styles for navigate, menu, and hours columns */
+.footer-col h4 {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F0C060;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-col ul a {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s;
+}
+
+.footer-col ul a:hover {
+  color: #ffffff;
+}
+
+/* Hours list has two values per row (day and time) */
+.hours-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hours-list li {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hours-list li strong {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Bottom copyright row */
+.footer-bottom {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =============================================
+   BACK TO TOP BUTTON
+   JavaScript adds/removes .show on scroll
+============================================= */
+#back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F0C060, #C8933A);
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(200, 147, 58, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 800;
+  transition: transform 0.2s;
+}
+
+#back-to-top.show {
+  display: flex;
+}
+
+#back-to-top:hover {
+  transform: translateY(-3px);
+}
+
+
+/* =============================================
+   RESPONSIVE — TABLET  (max-width: 1024px)
+============================================= */
+@media (max-width: 1024px) {
+
+  /* Stack hero to a single column */
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  /* Move the dog card above the text */
+  .hero-visual {
+    order: -1;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Stack about to a single column */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Reduce footer to two columns */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+
+/* =============================================
+   RESPONSIVE — SMALL TABLET  (max-width: 900px)
+============================================= */
+@media (max-width: 900px) {
+
+  /* Stack contact form and map on top of each other */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =============================================
+   RESPONSIVE — MOBILE  (max-width: 768px)
+============================================= */
+@media (max-width: 768px) {
+
+  /* Hide the desktop nav links, show the hamburger button */
+  .nav-links {
+    display: none;
+  }
+
+  #hamburger-btn {
+    display: flex;
+  }
+
+  /* Shorter slide height on small screens */
+  .slide {
+    height: 300px;
+  }
+
+  /* Stack footer to a single column */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section {
+    padding: 70px 5%;
+  }
+
+  .dog-emoji {
+    font-size: 5rem;
+  }
+}
+
+
+/* =============================================
+   RESPONSIVE — SMALL MOBILE  (max-width: 480px)
+============================================= */
+@media (max-width: 480px) {
+
+  .stats-row {
+    gap: 0.6rem;
+  }
+
+  .stat-box {
+    padding: 0.7rem 0.9rem;
+    min-width: 70px;
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+  }
+}

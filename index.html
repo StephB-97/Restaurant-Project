@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whiskey's Bistro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- =============================================
+      Navbar code 
+  ============================================= -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="paw-icon">🐾</span>
+      <span class="logo-text"> <em>Whiskey's</em> Bistro</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Hamburger button for mobile -->
+    <button id="hamburger-btn" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile dropdown menu -->
+  <div id="mobile-menu">
+    <a href="#home"    onclick="closeMenu()">Home</a>
+    <a href="#menu"    onclick="closeMenu()">Menu</a>
+    <a href="#gallery" onclick="closeMenu()">Gallery</a>
+    <a href="#about"   onclick="closeMenu()">About</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+
+
+  <!-- =============================================
+       HOME / HERO SECTION
+  ============================================= -->
+  <section id="home">
+    <!-- Floating paw prints in the background -->
+   <!--<div id="paw-bg"></div> -->
+
+    <div class="hero-content">
+
+      <!-- Left side: text -->
+      <div class="hero-text">
+        <div class="hero-badge">🐾 Pet friendly Bistro since 2018</div>
+
+        <h1> <em>Whiskey's</em><br>
+          <span class="blue-text">Bistro</span>
+        </h1>
+
+        <p class="hero-sub">
+          A cosy bistro crafted for food lovers and their four-legged
+          companions. Farm-fresh cuisine, dog-friendly patios, and a
+          dedicated Pup Menu that will make your furry friend enjy with you.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#menu"    class="btn btn-gold">🍽️ See Our Menu</a>
+          <a href="#contact" class="btn btn-blue">📍 Reserve a Table</a>
+        </div>
+      </div>
+
+      <!-- Right side: dog card + stats -->
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="dog-emoji">🐕</div>
+          <p class="card-label">Bring your furry friend!</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-number">4.9 ⭐</div>
+            <div class="stat-label">Rating</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">250+</div>
+            <div class="stat-label">Happy Pups</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">48</div>
+            <div class="stat-label">Dishes</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">7 yrs</div>
+            <div class="stat-label">Open</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       MENU SECTION
+  ============================================= -->
+  <section id="menu" class="section">
+    <div class="section-inner">
+
+      <p class="section-tag">Our Offerings</p>
+      <h2 class="section-title">A Menu With <em>Quality</em> Taste</h2>
+      <p class="section-desc">Farm-to-table dishes crafted daily — including a special Pup Menu!</p>
+      <div class="divider"></div>
+
+      <!-- Filter buttons -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterMenu('all', this)">All Items</button>
+        <button class="filter-btn" onclick="filterMenu('starters', this)">🥗 Starters</button>
+        <button class="filter-btn" onclick="filterMenu('mains', this)">🍖 Mains</button>
+        <button class="filter-btn" onclick="filterMenu('desserts', this)">🍰 Desserts</button>
+        <button class="filter-btn" onclick="filterMenu('drinks', this)">🥤 Drinks</button>
+        <button class="filter-btn" onclick="filterMenu('pup', this)">🐾 Pup Menu</button>
+      </div>
+
+      <!-- Menu cards grid -->
+      <div class="menu-grid">
+
+        <!-- STARTERS -->
+        <div class="menu-card" data-category="starters">
+          <div class="card-image" style="background: linear-gradient(135deg, #D6E9F8, #A8CCEB);"><img src="Img/chickenSalad.png"/></div>
+          <div class="card-body">
+            <h3 class="card-title">Chicken Salad Bowl</h3>
+            <p class="card-desc">Grilled Chicken, Persian Cucumbers, Quinoa, Romaine Lettuce &amp; Humus</p>
+            <div class="card-footer">
+              <span class="price">$14.50</span>
+              <span class="badge badge-green">🌱 Low Calorie</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="starters">
+          <div class="card-image" style="background: linear-gradient(135deg, #FEE8A8, #F0C060);">
+            <img src="Img/soup.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Baked Potato Bacon Soup</h3>
+            <p class="card-desc">Velvety baked potato soup with crispy bacon and chives</p>
+            <div class="card-footer">
+              <span class="price">$20.00</span>
+              <span class="badge badge-gold">🔥 Popular</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="starters">
+          <div class="card-image" style="background: linear-gradient(135deg, #E8C49A, #FEF4E8);">
+            <img src="Img/fries.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Truffle Parmesan Fries</h3>
+            <p class="card-desc">Crispy fries tossed in truffle oil and parmesan cheese</p>
+            <div class="card-footer">
+              <span class="price">$20.00</span>
+              <span class="badge badge-blue">Chef's Pick</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAINS -->
+        <div class="menu-card" data-category="mains">
+          <div class="card-image" style="background: linear-gradient(135deg, #A8CCEB, #5B9AC9);">
+            <img src="Img/salmon.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Pan-Seared Salmon</h3>
+            <p class="card-desc">Atlantic salmon, lemon-caper butter, asparagus &amp; herbed potato mash</p>
+            <div class="card-footer">
+              <span class="price">$35.00</span>
+              <span class="badge badge-gold">🔥 Popular</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="mains">
+          <div class="card-image" style="background: linear-gradient(135deg, #C8933A, #F0C060);">
+            <img src="Img/steak.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Yorkie Ribeye Steak</h3>
+            <p class="card-desc">300g grass-fed ribeye, garlic smashed potatoes, carrots &amp; broccoli</p>
+            <div class="card-footer">
+              <span class="price">$42.00</span>
+              <span class="badge badge-gold">🔥 Signature</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="mains">
+          <div class="card-image" style="background: linear-gradient(135deg, #D4F1D4, #A0DBA0);">
+            <img src="Img/risotto.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Wild Mushroom Risotto</h3>
+            <p class="card-desc">Creamy arborio with wild mushrooms, truffle oil, Parmesan &amp; fresh herbs</p>
+            <div class="card-footer">
+              <span class="price">$22.50</span>
+              <span class="badge badge-green">🌱 Vegetarian</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="mains">
+          <div class="card-image" style="background: linear-gradient(135deg, #D6E9F8, #5B9AC9);">
+            <img src="Img/roastedChicken.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Herb-Roasted Chicken</h3>
+            <p class="card-desc">Free-range whole chicken, rosemary jus, roasted tomatoes &amp; creamy potatoes</p>
+            <div class="card-footer">
+              <span class="price">$35.00</span>
+              <span class="badge badge-blue">Family Fav</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="menu-card" data-category="desserts">
+          <div class="card-image" style="background: linear-gradient(135deg, #FEE8A8, #C8933A);">
+            <img src="Img/flan.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Caramel Flan</h3>
+            <p class="card-desc">Caramel custard with a torched caramel crust </p>
+            <div class="card-footer">
+              <span class="price">$18.00</span>
+              <span class="badge badge-gold">🔥 Crowd Fav</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="desserts">
+          <div class="card-image" style="background: linear-gradient(135deg, #D6E9F8, #A8CCEB);">
+            <img src="Img/blueberry.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Blueberry Tart</h3>
+            <p class="card-desc">Buttery pastry shell, fresh blueberries &amp; mint</p>
+            <div class="card-footer">
+              <span class="price">$11.00</span>
+              <span class="badge badge-blue">Seasonal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="menu-card" data-category="drinks">
+          <div class="card-image" style="background: linear-gradient(135deg, #A8CCEB, #D6E9F8);">
+            <img src="Img/chai.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Hot Chai Latte</h3>
+            <p class="card-desc">Species Chai, oat milk, vanilla &amp; foam art</p>
+            <div class="card-footer">
+              <span class="price">$6.50</span>
+              <span class="badge badge-gold">🔥 Signature</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="drinks">
+          <div class="card-image" style="background: linear-gradient(135deg, #F0C060, #FEE8A8);">
+            <img src="Img/spritz.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Honey &amp; Ginger Spritz</h3>
+            <p class="card-desc">Sparkling water, ginger, wildflower honey syrup, mint &amp; lemon</p>
+            <div class="card-footer">
+              <span class="price">$8.00</span>
+              <span class="badge badge-green">🌱 Non-Alc</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PUP MENU -->
+        <div class="menu-card" data-category="pup">
+          <div class="card-image" style="background: linear-gradient(135deg, #FEE8A8, #E8C49A);">
+            <img src="Img/dogTreat.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Dog Low Fat Cookies</h3>
+            <p class="card-desc">House-baked peanut butter &amp; pumpkin dog biscuits — vet approved!</p>
+            <div class="card-footer">
+              <span class="price">$5.00</span>
+              <span class="badge badge-gold">🐾 Pup Fav</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="pup">
+          <div class="card-image" style="background: linear-gradient(135deg, #D6E9F8, #A8CCEB);">
+            <img src="Img/dogBowl.png"/>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Pup Bowl Supreme</h3>
+            <p class="card-desc">Steamed chicken, brown rice, carrots &amp; green beans — balanced &amp; safe</p>
+            <div class="card-footer">
+              <span class="price">$8.00</span>
+              <span class="badge badge-blue">🐾 Dog Menu</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- menu grid ends here  -->
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       GALLERY SECTION
+  ============================================= -->
+  <section id="gallery" class="section">
+    <div class="section-inner">
+
+      <p class="section-tag">📸 Visual Stories</p>
+      <h2 class="section-title">Life at <em>Whiskey's Bistro</em></h2>
+      <p class="section-desc">A peek into our world — delicious food, happy dogs, and great moments.</p>
+      <div class="divider"></div>
+
+      <!-- Main slider -->
+      <div class="slider-container">
+        <div class="slider-track" id="slider-track">
+
+          <div class="slide slide-1">
+            <img src="Img/petFriendly.jpg" alt="Background Image" class="slide-bg" />
+            
+          </div>
+
+          <div class="slide slide-2">
+              <img src="Img/steakfrites.webp" alt="Background Image" class="slide-bg" />
+            
+          </div>
+
+          <div class="slide slide-3">
+            <img src="Img/bistro.png" alt="Background Image" class="slide-bg" /> 
+            
+          </div>
+
+          <div class="slide slide-4">
+            <img src="Img/desserts.jpg" alt="Background Image" class="slide-bg" />
+            
+          </div>
+
+          <div class="slide slide-5">
+            <img src="Img/puppy.jpg" alt="Background Image" class="slide-bg" />
+            
+          </div>
+
+          <div class="slide slide-6">
+            <img src="Img/chickenUrugula.jpg" alt="Background Image" class="slide-bg" />
+            
+          </div>
+
+        </div><!-- end .slider-track -->
+
+        <!-- Prev / Next arrows -->
+        <button class="arrow arrow-left"  onclick="moveSlide(-1)">&#8592;</button>
+        <button class="arrow arrow-right" onclick="moveSlide(1)">&#8594;</button>
+      </div>
+
+      <!-- Dot indicators -->
+      <div class="slider-dots" id="slider-dots"></div>
+
+      
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       ABOUT SECTION
+  ============================================= -->
+  <section id="about" class="section section-alt">
+    <div class="section-inner">
+
+      <div class="about-grid">
+
+        <!-- Visual mosaic -->
+        <div class="about-mosaic">
+          <div class="mosaic-card mosaic-blue">🐕</div>
+          <div class="mosaic-card mosaic-gold">🍽️</div>
+          <div class="mosaic-card mosaic-tan">🌿</div>
+          <div class="mosaic-card mosaic-dk-blue">❤️</div>
+        </div>
+
+        <!-- Text content -->
+        <div class="about-text">
+          <p class="section-tag">🐾 Our Story</p>
+          <h2 class="section-title">Born from <em>Love</em> for Dogs &amp; Food</h2>
+          <div class="divider"></div>
+
+          <p>In 2018, Stephanie Bernades opened Whiskey's Bistro with one simple dream: a place where her beloved Yorkshire Terrier, Whiskey, could sit beside her at the dinner table — and so could yours.</p>
+
+          <h3>🌱 Our Philosophy</h3>
+          <p>Every dish is crafted from locally-sourced, seasonal ingredients. We partner with local farms to guarantee freshness.</p>
+
+          <h3>🐶 A Space for Every Pup</h3>
+          <p>Our dog-friendly garden patio features water stations, shaded rest spots, and a dedicated Pup Menu designed by our in-house canine nutritionist. Every dog receives a complimentary welcome low fat biscuit on arrival.</p>
+
+          <h3>🏆 Awards &amp; Recognition</h3>
+          <p>Named "Most Dog-Friendly Restaurant" by City Dining Magazine three years running. We've proudly hosted over 3,000 dogs and counting!</p>
+
+          <!-- Pill tags -->
+          <div class="pills">
+            <span class="pill">🌿 Farm-to-Table</span>
+            <span class="pill">🐾 Dog-Certified</span>
+            <span class="pill">♻️ Sustainable</span>
+            <span class="pill">🏆 Award-Winning</span>
+            <span class="pill">🌱 Veg-Friendly</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       CONTACT SECTION
+  ============================================= -->
+  <section id="contact" class="section">
+    <div class="section-inner">
+
+      <p class="section-tag">📍 Find Us</p>
+      <h2 class="section-title">Visit <em>Whiskey's Bistro</em></h2>
+      <p class="section-desc">Come in, bring your pup, and let us take care of the rest!</p>
+      <div class="divider"></div>
+
+      <div class="contact-grid">
+
+        <!-- Contact form -->
+        <div class="form-wrapper">
+          <h3>Contact us</h3>
+
+          <form id="contact-form" onsubmit="submitForm(event)">
+
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" placeholder="e.g. Stephy" />
+              <span class="error-msg" id="error-name"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" placeholder="hello@example.com" />
+              <span class="error-msg" id="error-email"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="fsubject">Subject</label>
+              <select id="fsubject">
+                <option value="">— Select a topic —</option>
+                <option>Table Reservation</option>
+                <option>Private Event</option>
+                <option>Dog-Friendly Enquiry</option>
+                <option>Feedback</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" placeholder="Tell us how we can help — or how many paws are joining! 🐾"></textarea>
+              <span class="error-msg" id="error-message"></span>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%;">Send Message 🐾</button>
+
+            <!-- Success message, hidden by default -->
+            <div id="form-success">✅ Woof! Message sent. We'll wag back within 24 hours.</div>
+
+          </form>
+        </div>
+
+        <!-- Map + contact details -->
+        <div class="map-side">
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2412648718453!2d-73.98784368459418!3d40.74881797932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="contact-info">
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <span>42 Biscuit Lane, Pawtown, NY 10001</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📞</span>
+              <span>+1 (212) 555-0178</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">✉️</span>
+              <span>hello@whiskeysbistro.com</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">🐾</span>
+              <span>Dogs welcome every day, all day!</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end .contact-grid -->
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-grid">
+
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <span class="paw-icon large">🐾</span>
+          <h3>Whiskey's Bistro</h3>
+          <p>Where tails wag and flavours dance. A dog-friendly bistro crafted with love for you and your four-legged companions.</p>
+
+          <div class="social-links">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📸</a>
+            <a href="#" title="TikTok">🎵</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="#" title="Pinterest">📌</a>
+          </div>
+        </div>
+
+        <!-- Navigate column -->
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Menu column -->
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="#menu">Starters</a></li>
+            <li><a href="#menu">Mains</a></li>
+            <li><a href="#menu">Desserts</a></li>
+            <li><a href="#menu">Drinks</a></li>
+            <li><a href="#menu">Pup Menu</a></li>
+          </ul>
+        </div>
+
+        <!-- Hours column -->
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <ul class="hours-list">
+            <li><strong>Mon – Thu</strong> <span>8am – 9pm</span></li>
+            <li><strong>Friday</strong>    <span>8am – 10pm</span></li>
+            <li><strong>Saturday</strong>  <span>8am – 10pm</span></li>
+            <li><strong>Sunday</strong>    <span>8am – 8pm</span></li>
+            <li><strong>Public Hols</strong><span>10am – 7pm</span></li>
+          </ul>
+        </div>
+
+      </div><!-- end .footer-grid -->
+
+      <div class="footer-bottom">
+        <span>© 2025 Whiskey's Bistro. All rights reserved.</span>
+        <span>Privacy · Terms</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" onclick="scrollToTop()">↑</button>
+
+  <!-- Link to JavaScript file -->
+  <script src="script.js"></script>
+
+</body>
+</html>
