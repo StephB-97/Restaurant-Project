@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whiskey's Bistro</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="cart.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
 </head>
 
@@ -28,6 +29,13 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
 
+
+    <!-- Shopping Cart Icon Button -->
+    <button id="cart-icon-btn" onclick="toggleCart()" aria-label="Open shopping cart">
+      🛒
+      <span id="cart-badge">0</span>
+    </button>
+
     <!-- Hamburger button for mobile -->
     <button id="hamburger-btn" onclick="toggleMenu()">
       <span></span>
@@ -44,6 +52,46 @@
     <a href="#about"   onclick="closeMenu()">About</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
   </div>
+
+  <!-- =============================================
+       SHOPPING CART SIDEBAR
+  ============================================= -->
+
+  <!-- Dark overlay — clicking it closes the cart -->
+  <div id="cart-overlay" onclick="toggleCart()"></div>
+
+  <!-- Cart sidebar panel -->
+  <div id="cart-sidebar">
+
+    <div class="cart-header">
+      <h2>🛒 Your Cart</h2>
+      <button id="close-cart-btn" onclick="toggleCart()" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-body">
+      <!-- Empty state message -->
+      <p id="cart-empty">
+        <span>🐾</span>
+        Your cart is empty.<br>Add something delicious!
+      </p>
+      <!-- Cart items list — populated by JavaScript -->
+      <ul id="cart-items"></ul>
+    </div>
+
+    <!-- Total + action buttons — hidden while cart is empty -->
+    <div id="cart-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <div class="cart-actions">
+        <button class="btn-clear-cart" onclick="clearCart()">🗑️ Clear Cart</button>
+        <button class="btn-checkout" onclick="alert('Checkout coming soon! 🐾')">Checkout →</button>
+      </div>
+    </div>
+
+  </div>
+
 
 
   <!-- =============================================
@@ -140,6 +188,7 @@
               <span class="price">$14.50</span>
               <span class="badge badge-green">🌱 Low Calorie</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Chicken Salad Bowl', 14.50)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -154,6 +203,7 @@
               <span class="price">$20.00</span>
               <span class="badge badge-gold">🔥 Popular</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Baked Potato Bacon Soup', 20.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -168,6 +218,7 @@
               <span class="price">$20.00</span>
               <span class="badge badge-blue">Chef's Pick</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Truffle Parmesan Fries', 20.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -183,6 +234,7 @@
               <span class="price">$35.00</span>
               <span class="badge badge-gold">🔥 Popular</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Pan-Seared Salmon', 35.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -197,6 +249,7 @@
               <span class="price">$42.00</span>
               <span class="badge badge-gold">🔥 Signature</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Yorkie Ribeye Steak', 42.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -211,6 +264,7 @@
               <span class="price">$22.50</span>
               <span class="badge badge-green">🌱 Vegetarian</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Wild Mushroom Risotto', 22.50)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -225,6 +279,7 @@
               <span class="price">$35.00</span>
               <span class="badge badge-blue">Family Fav</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Herb-Roasted Chicken', 35.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -240,6 +295,7 @@
               <span class="price">$18.00</span>
               <span class="badge badge-gold">🔥 Crowd Fav</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Caramel Flan', 18.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -254,6 +310,7 @@
               <span class="price">$11.00</span>
               <span class="badge badge-blue">Seasonal</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Blueberry Tart', 11.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -269,6 +326,7 @@
               <span class="price">$6.50</span>
               <span class="badge badge-gold">🔥 Signature</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Hot Chai Latte', 6.50)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -283,6 +341,7 @@
               <span class="price">$8.00</span>
               <span class="badge badge-green">🌱 Non-Alc</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Honey & Ginger Spritz', 8.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -298,6 +357,7 @@
               <span class="price">$5.00</span>
               <span class="badge badge-gold">🐾 Pup Fav</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Dog Low Fat Cookies', 5.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -312,6 +372,7 @@
               <span class="price">$8.00</span>
               <span class="badge badge-blue">🐾 Dog Menu</span>
             </div>
+            <button class="add-to-cart-btn" onclick="addToCart('Pup Bowl Supreme', 8.00)">+ Add to Cart</button>
           </div>
         </div>
 
@@ -595,6 +656,8 @@
 
   <!-- Link to JavaScript file -->
   <script src="script.js"></script>
+  <!-- Shopping cart JavaScript file -->
+  <script src="shopping-cart.js"></script>
 
 </body>
 </html>
